@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frico.fun – Kalkulator Probabilitas</title>
+  <style>
+    body {
+      font-family: monospace;
+      text-align: center;
+      padding: 40px;
+      background: #fdfdfd;
+    }
+    input[type=range] {
+      width: 80%;
+    }
+    label {
+      display: block;
+      margin-top: 30px;
+    }
+    .output {
+      margin-top: 40px;
+      font-size: 1.6em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Frico.fun – Probabilitas Gabungan</h1>
+
+<label>
+  Probabilitas A:
+  <input type="range" id="a" min="0" max="100" value="50" oninput="calc()">
+  <span id="aval">50%</span>
+</label>
+
+<label>
+  Probabilitas B:
+  <input type="range" id="b" min="0" max="100" value="50" oninput="calc()">
+  <span id="bval">50%</span>
+</label>
+
+<div class="output">
+  P(A ∩ B) = <span id="res">25%</span>
+</div>
+
+<script>
+function calc() {
+  const a = +document.getElementById('a').value;
+  const b = +document.getElementById('b').value;
+
+  document.getElementById('aval').innerText = a + '%';
+  document.getElementById('bval').innerText = b + '%';
+
+  const result = (a / 100) * (b / 100) * 100;
+  document.getElementById('res').innerText = result.toFixed(2) + '%';
+}
+calc();
+</script>
+
+</body>
+</html>
